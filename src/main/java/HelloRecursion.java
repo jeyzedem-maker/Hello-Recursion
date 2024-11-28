@@ -1,20 +1,21 @@
-public class HelloRecursion {
-    public int repetitions;
-    public int number;
-    public HelloRecursion() {
-        repetitions = 5000;
-        number = 1;
-    }
 
+public class HelloRecursion {
     public static void main(String[] args) {
         HelloRecursion hr = new HelloRecursion();
-        hr.repeat(hr.repetitions, hr.number);
+        hr.repeat(1, 10);
     }
-    public static void repeat(int repetitions, int number){
-        if (number <= repetitions){
-            System.out.println("Hello " + number);
-            number++;
-            repeat(repetitions,number);
+
+    public void repeat(int repetitions) {
+        System.out.println("Hello " + repetitions);
+        if (repetitions > 0) {
+            repeat(repetitions - 1);
+        }
+    }
+
+    public void repeat(int currentRepetitions, int maxRepetitions) {
+        System.out.println("Hello " + currentRepetitions);
+        if (currentRepetitions < maxRepetitions) {
+            repeat(currentRepetitions + 1, maxRepetitions);
         }
     }
 }
